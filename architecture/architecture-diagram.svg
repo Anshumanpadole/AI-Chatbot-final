@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#09090b"/>
+
+  <!-- User Node -->
+  <rect x="300" y="30" width="200" height="50" rx="10" fill="url(#indigoGrad)" stroke="#818cf8" stroke-width="2"/>
+  <text x="400" y="60" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">User</text>
+
+  <!-- Arrow Down -->
+  <line x1="400" y1="80" x2="400" y2="120" stroke="#818cf8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Next.js Frontend -->
+  <rect x="250" y="120" width="300" height="60" rx="12" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+  <text x="400" y="155" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Next.js Frontend</text>
+
+  <!-- Arrow Down -->
+  <line x1="400" y1="180" x2="400" y2="220" stroke="#818cf8" stroke-width="3"/>
+
+  <!-- FastAPI Backend -->
+  <rect x="250" y="220" width="300" height="60" rx="12" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+  <text x="400" y="255" fill="#009485" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">FastAPI Backend</text>
+
+  <!-- Arrow Down -->
+  <line x1="400" y1="280" x2="400" y2="320" stroke="#818cf8" stroke-width="3"/>
+
+  <!-- Document Parser -->
+  <rect x="250" y="320" width="300" height="50" rx="10" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+  <text x="400" y="350" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="medium" text-anchor="middle">Document Parser (PyPDF / docx)</text>
+
+  <!-- Arrow Down -->
+  <line x1="400" y1="370" x2="400" y2="410" stroke="#818cf8" stroke-width="3"/>
+
+  <!-- Token Counter -->
+  <rect x="280" y="410" width="240" height="50" rx="10" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+  <text x="400" y="440" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="14" font-weight="medium" text-anchor="middle">Token Counter (tiktoken)</text>
+
+  <!-- Arrow Down -->
+  <line x1="400" y1="460" x2="400" y2="500" stroke="#818cf8" stroke-width="3"/>
+
+  <!-- Decision Diamond -->
+  <polygon points="400,500 520,550 400,600 280,550" fill="url(#darkGrad)" stroke="#a855f7" stroke-width="2"/>
+  <text x="400" y="548" fill="#f3e8ff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Token Count</text>
+  <text x="400" y="565" fill="#f3e8ff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">&lt; 3000?</text>
+
+  <!-- Decision Lines -->
+  <!-- YES (Left) -->
+  <line x1="280" y1="550" x2="160" y2="550" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="160" y1="550" x2="160" y2="620" stroke="#f59e0b" stroke-width="3"/>
+  <text x="210" y="540" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">YES (Short)</text>
+
+  <!-- NO (Right) -->
+  <line x1="520" y1="550" x2="640" y2="550" stroke="#06b6d4" stroke-width="3"/>
+  <line x1="640" y1="550" x2="640" y2="600" stroke="#06b6d4" stroke-width="3"/>
+  <text x="590" y="540" fill="#06b6d4" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">NO (Large)</text>
+
+  <!-- Prompt Pipeline (Left branch) -->
+  <rect x="60" y="620" width="200" height="60" rx="10" fill="url(#amberGrad)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="160" y="645" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Prompt Pipeline</text>
+  <text x="160" y="663" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">(Pass Entire Doc Text)</text>
+
+  <line x1="160" y1="680" x2="160" y2="850" stroke="#f59e0b" stroke-width="3"/>
+  <line x1="160" y1="850" x2="280" y2="850" stroke="#c084fc" stroke-width="3"/>
+
+  <!-- RAG Pipeline (Right branch) -->
+  <!-- Chunking -->
+  <rect x="540" y="600" width="200" height="45" rx="8" fill="#27272a" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="640" y="627" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Chunking (1000, overlap 200)</text>
+
+  <line x1="640" y1="645" x2="640" y2="670" stroke="#06b6d4" stroke-width="2"/>
+
+  <!-- Embeddings -->
+  <rect x="540" y="670" width="200" height="45" rx="8" fill="#27272a" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="640" y="697" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Embeddings (MiniLM-L6)</text>
+
+  <line x1="640" y1="715" x2="640" y2="740" stroke="#06b6d4" stroke-width="2"/>
+
+  <!-- FAISS -->
+  <rect x="540" y="740" width="200" height="45" rx="8" fill="#27272a" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="640" y="767" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">FAISS Index &amp; Search</text>
+
+  <line x1="640" y1="785" x2="640" y2="810" stroke="#06b6d4" stroke-width="2"/>
+
+  <!-- Retrieved Chunks -->
+  <rect x="540" y="810" width="200" height="45" rx="8" fill="#27272a" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="640" y="837" fill="#e4e4e7" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Retrieved Chunks (Top 5)</text>
+
+  <line x1="640" y1="855" x2="640" y2="880" stroke="#06b6d4" stroke-width="3"/>
+  <line x1="640" y1="880" x2="520" y2="880" stroke="#c084fc" stroke-width="3"/>
+
+  <!-- Groq LLM Target -->
+  <rect x="280" y="830" width="240" height="70" rx="15" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="2"/>
+  <text x="400" y="863" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Groq LLM Service</text>
+  <text x="400" y="882" fill="#d1fae5" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">(llama-3.3-70b-versatile)</text>
+
+  <!-- Output Arrow -->
+  <line x1="400" y1="900" x2="400" y2="940" stroke="#818cf8" stroke-width="3"/>
+
+  <!-- Response -->
+  <rect x="300" y="940" width="200" height="45" rx="8" fill="#18181b" stroke="#818cf8" stroke-width="2"/>
+  <text x="400" y="967" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Grounded Answer</text>
+
+  <!-- SVG markers -->
+  <markers>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#818cf8"/>
+    </marker>
+  </markers>
+</svg>
