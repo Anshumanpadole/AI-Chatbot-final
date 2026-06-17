@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Required for Firebase App Hosting / Cloud Functions deployment.
+  // Standalone mode bundles only what's needed for production.
+  output: "standalone",
 };
 
 export default nextConfig;
