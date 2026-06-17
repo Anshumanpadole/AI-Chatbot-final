@@ -42,7 +42,7 @@ export default function FileUpload({ onUploadSuccess, onUploadStart }: FileUploa
     formData.append('file', file);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/upload`, {
+      const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });

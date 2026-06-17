@@ -31,9 +31,14 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # CORS configuration
+# Reads allowed origins from ALLOWED_ORIGINS env var (comma-separated).
+# Falls back to permissive wildcard if not set (useful for local dev).
+_raw_origins = os.getenv("ALLOWED_ORIGINS", "*")
+_allow_origins = [o.strip() for o in _raw_origins.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust for production
+    allow_origins=_allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -162,7 +167,9 @@ async def ask_question(request: Request, body: AskRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    # Load settings from environment
+    # Load settings from environment.
+    # Run with: python -m backend.main  (from project root)
+    # or:       uvicorn backend.main:app --host 0.0.0.0 --port 8000
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8000"))
-    uvicorn.run("backend.main:app", host=host, port=port, reload=True)
+    uvicorn.run("backend.main:app", host=host, port=port, reload=False)
